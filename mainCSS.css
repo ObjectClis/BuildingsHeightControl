@@ -1,0 +1,147 @@
+﻿
+
+*{
+	padding: 0;
+    margin: 0;
+}
+
+html,body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+header{
+	color:white;
+	background-color: #2A2A28;
+}
+
+
+.am-btn{
+	background-color:transparent;
+	color: white;
+	border-color: transparent;
+	text-shadow: 1px 1px 1px #2A2A28;
+}
+
+
+
+#headDiv{
+	position: relative;
+	color:white;
+/*	right:100px;*/
+	top:0;
+/*	position:relative;*/
+/*	width: 100%;*/
+	
+}
+
+#headLbl{
+	position: relative;
+	padding: 0;
+	margin: 0;
+	font-size: 1.5em;
+	color:white;
+	font-family: "微软雅黑";
+	font-weight: 400;
+	text-shadow: 2px 2px 2px #2A2A28;
+	left:65px;
+}
+
+#menuDiv{
+	position:absolute;
+	height: 100%;
+/*	background-color: white;*/
+	top:0px;
+	right:100px;
+	
+}
+
+
+.am-selected-btn.am-btn-default {
+     background:#808080; 
+}
+
+#viewDiv{
+	position: absolute;
+	padding: 0;
+    margin: 0;
+    top:0px;
+	bottom: 0px;
+    width: 100%;
+}
+
+#headerMenu div ul{
+	overflow-y: auto;
+	height: 500px;
+}
+
+#configDiv label{
+	margin: 0;
+	padding: 0;
+	font-size: 1.2em;
+}
+
+#configDiv input{
+/*
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	font-size: 1.2em;
+	width: 50px;
+	right: 0;
+*/
+}
+
+#configDiv form div{
+	position: relative;
+	width: 100%;
+}
+
+#configDiv form div font{
+	line-height: 1em;
+	font-size: 1em;
+}
+
+.mainFactorP{
+	position: absolute;
+	border-width: 1px;
+	border-style:double;
+	border-color: darkgray;
+	right:0;
+	width: 50px;
+	background-color: #333333;
+	color:white;
+	font-size: 1.4em;
+	text-align: center;
+}
+
+.subFactorP{
+	position: absolute;
+	border-width: 0;
+	right:0;
+	width: 50px;
+	background-color: darkgray;
+	color:black;
+	font-size: 1em;
+	text-align: center;
+}
+
+.groupBlock{
+	position: relative;
+	width: 100%;
+	display: flex;
+	-webkit-display:flex;
+}
+
+.btnBlock{
+	-webkit-flex:1;
+	flex:1;
+}
+
+#baseImageSelect{
+/*	position:absolute;*/
+	overflow-y: auto;
+	max-height: 600px;
+}

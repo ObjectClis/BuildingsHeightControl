@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>建筑物高度辅助规划平台 V1.1</title>
+
+
+    <!--<script type="text/javascript" src="indexJS.js"></script>-->
+
+    <!-- 网络引用 -->
+    <!--AnazeUI引用部分-->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <!--<link rel="alternate icon" type="image/png" href="http://192.168.1.128/AmazeUI/assets/i/favicon.png">-->
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
+
+    <!--Arcgis js API4.6 引用-->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.6/"></script>
+
+
+    <!-- 本机引用 -->
+    <!--AnazeUI引用部分-->
+    <!--<script src="http://192.168.1.128/AmazeUI/assets/js/jquery.min.js"></script>
+    <script src="http://192.168.1.128/AmazeUI/assets/js/amazeui.min.js"></script>
+    <link rel="alternate icon" type="image/png" href="http://192.168.1.128/AmazeUI/assets/i/favicon.png">
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />-->
+
+    <!--Arcgis js API4.6 引用-->
+    <!--<link rel="stylesheet" href="http://192.168.1.128/arcgis_js_v46_api/arcgis_js_api/library/4.6/esri/css/main.css">
+    <script src="http://192.168.1.128/arcgis_js_v46_api/arcgis_js_api/library/4.6/init.js"></script>-->
+
+        <!-- AJS 皮肤包 -->
+<!--    <link rel="stylesheet" href="http://192.168.1.128/arcgis_js_v44_api/arcgis_js_api/library/4.4/esri/themes/light-red/main.css"/>-->
+<!-- <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/themes/light-red/main.css"/>-->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/themes/dark-blue/main.css">
+    <!--主干框架-->
+    <script src="mainScript.js"></script>
+    <link rel="stylesheet" href="mainCSS.css" />
+
+</head>
+ 
+
+<body>
+   
+  
+
+   
+   
+   
+    <div id="viewDiv"></div>
+
+   
+	 <div id="headDiv">
+		<label id="headLbl">建筑物高度辅助规划平台</label>  
+		<div id="menuDiv" >
+			<div class="am-dropdown" data-am-dropdown>
+			  <button class="am-btn am-btn-secondary am-dropdown-toggle" data-am-dropdown-toggle>规划图叠加 <span class="am-icon-caret-down"></span></button>
+			  <ul id="baseImageSelect" class="am-dropdown-content">
+				<li imagealue="0"  class="am-active"><a href="#">无（默认）</a></li>
+				<li class="am-divider"></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >城市风貌因子</font></li>
+				<li value="101" class="iamgeSelected" ><a href="#"><b>城区景观风貌</b><br><font color="gray" size="2">中心城区景观风貌规划图</font></a></li>
+				<li value="102" class="iamgeSelected" ><a href="#"><b>城区生态空间格局</b><br><font color="gray" size="2">主城区生态空间格局图</font></a></li>
+				<li class="am-divider"></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >历史文化因子</font></li>
+				<li value="201"><a href="#"><b>文物紫线</b><br><font color="gray" size="2">中心城区紫线控制图</font></a></li>
+				<li value="202"><a href="#"><b>市域历史文化遗产保护</b><br><font color="gray" size="2">市域历史文化遗产保护规划图</font></a></li>
+				<li value="203"><a href="#"><b>中心城区历史文化遗产保护</b><br><font color="gray" size="2">中心城区文化遗产保护规划图</font></a></li>
+				<li class="am-divider"></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >城市景观因子</font></li>
+				<li value="301"><a href="#"><b>生态控制</b><br><font color="gray" size="2">市域基本生态控制线规划图</font></a></li>
+				<li value="302"><a href="#"><b>生态保护</b><br><font color="gray" size="2">环巢湖生态保护区图</font></a></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >土地价格因子</font></li>
+				<li value="401"><a href="#"><b>房价分布</b><br><font color="gray" size="2">中心城区房价图(2017.12)</font></a></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >交通可达性因子</font></li>
+				<li value="501"><a href="#"><b>轨道交通</b><br><font color="gray" size="2">轨道交通规划图</font></a></li>
+				<li value="502"><a href="#"><b>公共交通</b><br><font color="gray" size="2">轨道交通规划图</font></a></li>
+				<li class="am-dropdown-header"><font color="#3BB4F2" >建设潜力因子</font></li>
+				<li value="601"><a href="#"><b>空间管制</b><br><font color="gray" size="2">中心城区空间管制规划图</font></a></li>
+				<li value="602"><a href="#"><b>用地适宜性</b><br><font color="gray" size="2">市域用地适宜性分析图</font></a></li>
+				
+			  </ul>
+			</div>
+			<button class="am-btn am-btn-secondary" data-am-offcanvas="{target: '#doc-oc-demo3'}">因子配置</button>
+			<!-- 侧边栏内容 -->
+			<div id="doc-oc-demo3" class="am-offcanvas">
+			  <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+				<div id="configDiv" class="am-offcanvas-content">
+		  			<center><label>建模倍数差分量</label></center>
+		  			<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+                    <div class="am-btn-group groupBlock">
+                        <button id="btnSetZero" type="button" class="am-btn am-btn-primary am-radius btnBlock">清零</button>
+                        <button id="btnReset" type="button" class="am-btn am-btn-warning am-radius btnBlock">重置</button>
+                    </div>
+                    <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+		  			<form>
+		  				<div>
+		  					<label>城市风貌因子</label>
+							<input id="inputP1" class="mainFactorP" value="1" >
+		  				</div>
+						<br>
+						<div>
+							<font>城市景观风貌</font>
+							<input id="inputP101" class="subFactorP" value="0.5" >
+						</div>
+		  				<div>
+							<font>城市生态空间格局</font>
+							<input id="inputP102" class="subFactorP" value="0.5" >
+						</div>
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+		  				<div>
+		  					<label>历史文化因子</label>
+							<input id="inputP2" class="mainFactorP" value="1" >
+		  				</div>
+						
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+		  				<div>
+		  					<label>城市景观因子</label>
+							<input id="inputP3" class="mainFactorP" value="1" >
+		  				</div>
+		  				<br>
+		  				<div>
+							<font>生态控制区</font>
+							<input id="inputP301" class="subFactorP" value="0.5" >
+						</div>
+		  				<div>
+							<font>生态保护区</font>
+							<input id="inputP302" class="subFactorP" value="0.5" >
+						</div>
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+		  				<div>
+		  					<label>土地价格因子</label>
+							<input id="inputP4" class="mainFactorP" value="1" >
+		  				</div>
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+		  				<div>
+		  					<label>交通可达性因子</label>
+							<input id="inputP5" class="mainFactorP" value="1" >
+		  				</div>
+						<br>
+						<div>
+							<font>轨道交通</font>
+							<input id="inputP501" class="subFactorP" value="0.6" >
+						</div>
+		  				<div>
+							<font>公共交通</font>
+							<input id="inputP502" class="subFactorP" value="0.4" >
+						</div>
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+						<div>
+		  					<label>建设潜力因子</label>
+							<input  id="inputP6" class="mainFactorP" value="1" >
+		  				</div>
+						<br>
+						<div>
+							<font>空间管制</font>
+							<input id="inputP601" class="subFactorP" value="0.5" >
+						</div>
+		  				<div>
+							<font>用地适宜性</font>
+							<input id="inputP602" class="subFactorP" value="0.5" >
+						</div>
+		  				<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+
+		  			</form>
+		  			<div class="am-btn-group groupBlock">
+					  <button id="btnFactorsDo" type="button" class="am-btn am-btn-primary am-radius btnBlock">应用</button>
+					  <button id="btnFactorsCancel" type="button" class="am-btn am-btn-warning am-radius btnBlock">取消</button>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<!--<button id="btnModel" type="button" class="am-btn am-btn-secondary">控高模型</button>-->
+			<button id="btnWidget" type="button" class="am-btn am-btn-secondary">小部件</button>
+			<button id="btnYD" type="button" class="am-btn am-btn-secondary">用地图</button>
+			<button id="btnKG" type="button" class="am-btn am-btn-secondary">控高模型</button>
+            <button id="btnTest" type="button" class="am-btn am-btn-secondary">测试</button>
+
+		</div>
+
+     </header>
+
+</body>
+
+
+
+</html>
